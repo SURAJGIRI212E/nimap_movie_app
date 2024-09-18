@@ -1,0 +1,118 @@
+/* Main styles for larger screens */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333a3f;
+    padding: 20px 10%;
+    color: #fff;
+    position: sticky;
+    top: 0;
+    overflow: hidden;
+    z-index: 100;
+}
+
+.navbar-brand {
+    font-size: 1.4rem;
+    color: #fff;
+    margin-right: 10%;
+}
+.navbar-toggle{
+    display: none;
+}
+.navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.navbar-links {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-links li a {
+    color: #ccc;
+    text-decoration: none;
+    font-size: 1rem;
+    white-space: nowrap;
+}
+
+.navbar-links li a:hover {
+    color: #fff;
+}
+
+.navbar-search {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.navbar-search input {
+    padding: 8px;
+    border-radius: 4px;
+    font-size: 1rem;
+    outline: none;
+}
+
+.navbar-search button {
+    background-color: #6c757d;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.navbar-search button:hover {
+    background-color: #666;
+}
+
+/* Styles for smaller screens */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px 5%;
+    }
+
+    .navbar-right {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .navbar-links {
+        display: none; /* Hide links by default */
+        flex-direction: column;
+        gap: 10px;
+        width: 60%;
+        background-color: #333a3f;
+        padding: 10px 0;
+    }
+
+    .navbar-links.active {
+        display: flex; /* Show links when menu is toggled */
+    }
+
+    .navbar-toggle {
+        display: block;
+        background-color: transparent;
+        color: #fff;
+        font-size: 1.5rem;
+        border: none;
+        cursor: pointer;
+        outline: none;
+    }
+
+    .navbar-search {
+        margin-top: 10px;
+        width: 100%;
+    }
+
+    .navbar-search input {
+        width: 100%;
+    }
+}

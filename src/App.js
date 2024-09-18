@@ -1,24 +1,33 @@
-import logo from './logo.svg';
 import './App.css';
+import { useState } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Navbar from './components/Navbar.jsx';
+import Home from './components/Home.jsx';
+import MovieDetails from './components/MovieDetails.jsx';
 
 function App() {
+  const [query, setQuery] = useState('');
+  const [loading, setLoading] = useState(true);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+     
+      <Navbar setQuery={setQuery} setLoading={setLoading} />
+      <Routes>
+        <Route
+          path="/"
+          element={<Home query={query} loading={loading} setLoading={setLoading} setQuery={setQuery}/>}
+        />
+        <Route
+          path="/:type"
+          element={<Home query={query} loading={loading} setLoading={setLoading} setQuery={setQuery}/>}
+        />
+        <Route
+          path="/movie/:id"
+          element={<MovieDetails  loading={loading} setLoading={setLoading} />}
+        />
+      </Routes>
+    </Router>
   );
 }
 
